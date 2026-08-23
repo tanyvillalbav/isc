@@ -307,6 +307,54 @@ svg{ display: block; }
   object-position: top center;   /* <-- clave: alinea la foto arriba en vez de centrarla */
 }
 
+/* =========================================================
+   Valida tus certificados y títulos técnicos
+   ========================================================= */
+.rejilla-validacion{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.tarjeta-validacion{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: linear-gradient(180deg, var(--celeste-050) 0%, var(--blanco) 22%);
+  border: 1px solid rgba(14,34,56,.08);
+  border-top: 5px solid var(--celeste);
+  border-radius: var(--radio-md);
+  padding: 32px 26px;
+  box-shadow: var(--sombra-1);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.tarjeta-validacion:hover{ transform: translateY(-6px); box-shadow: var(--sombra-2); }
+/* Cada tarjeta con un color de acento distinto */
+.tarjeta-validacion:nth-child(2){ border-top-color: var(--azul-medio); }
+.tarjeta-validacion:nth-child(3){ border-top-color: var(--azul-oscuro); }
+
+.tarjeta-validacion__icono{
+  width: 58px; height: 58px; border-radius: 50%;
+  background: var(--celeste); color: var(--azul-oscuro);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 8px;
+  box-shadow: 0 8px 18px -8px rgba(34,195,230,.55);
+}
+.tarjeta-validacion:nth-child(2) .tarjeta-validacion__icono{
+  background: var(--azul-medio); color: var(--blanco);
+  box-shadow: 0 8px 18px -8px rgba(19,93,149,.55);
+}
+.tarjeta-validacion:nth-child(3) .tarjeta-validacion__icono{
+  background: var(--azul-oscuro); color: var(--celeste-300);
+  box-shadow: 0 8px 18px -8px rgba(7,26,48,.55);
+}
+
+.tarjeta-validacion h3{ font-size: 1.02rem; margin-bottom: 0; }
+.tarjeta-validacion p{ color: var(--texto-suave); font-size: .86rem; margin-bottom: 6px; }
+.tarjeta-validacion .enlace-flecha{
+  margin-top: 8px; font-weight: 800; color: var(--azul-marino);
+}
+.tarjeta-validacion:hover .enlace-flecha{ color: var(--celeste-600); }
+
 .tarjeta-certificacion{
   background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12);
   border-radius: var(--radio-lg); padding: 16px;
