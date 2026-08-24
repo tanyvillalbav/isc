@@ -1,550 +1,530 @@
-<!DOCTYPE html>
-<html lang="es-PE">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instituto de Sistemas Cusco - UNSAAC</title>
-<meta name="description" content="Instituto de Sistemas Cusco (ISC) - UNSAAC. Cursos de capacitación en tecnologías de información: Office con IA, Power BI, AutoCAD, ArcGIS, S10 y más. Certificación oficial respaldada por la Universidad Nacional de San Antonio Abad del Cusco.">
-<link rel="icon" type="image/png" href="img/favicon-32.png">
-<link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-
-<!-- =========================================================
-     SPRITE DE ICONOS SVG (reutilizables mediante <use>)
-     ========================================================= -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<defs>
-
-  <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
-  <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
-  <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 2.9 6.3 6.9.7-5.2 4.7 1.5 6.8L12 17l-6.1 3.5 1.5-6.8-5.2-4.7 6.9-.7L12 2Z"/></symbol>
-
-  <symbol id="i-certificado" viewBox="0 0 48 48">
-    <circle cx="24" cy="19" r="12" fill="none" stroke="currentColor" stroke-width="2.6"/>
-    <path d="m9 32-4 13 7-3 4 6 4.5-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="m39 32 4 13-7-3-4 6-4.5-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="m18 19 4 4 8-8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  </symbol>
-  <symbol id="i-titulo" viewBox="0 0 48 48">
-    <rect x="8" y="10" width="32" height="24" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.4"/>
-    <path d="M8 18h32" stroke="currentColor" stroke-width="2.4"/>
-    <circle cx="24" cy="26" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/>
-    <path d="M18 40h12M16 34l2 6M32 34l-2 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-  </symbol>
-
-  <symbol id="i-telefono" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z"/></symbol>
-  <symbol id="i-whatsapp" viewBox="0 0 32 32"><path fill="currentColor" d="M16.004 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.258.594 4.375 1.633 6.21L3.2 28.8l6.77-1.6a12.73 12.73 0 0 0 6.034 1.53h.005c7.07 0 12.8-5.73 12.8-12.8s-5.73-12.73-12.805-12.73Zm0 23.18h-.004a10.35 10.35 0 0 1-5.28-1.446l-.379-.225-3.92.927.99-3.826-.247-.393a10.33 10.33 0 0 1-1.588-5.517c0-5.71 4.646-10.36 10.432-10.36 2.784 0 5.4 1.086 7.37 3.06a10.33 10.33 0 0 1 3.05 7.34c-.002 5.71-4.65 10.44-10.424 10.44Zm5.71-7.79c-.312-.157-1.85-.912-2.137-1.016-.287-.104-.496-.157-.705.157-.208.312-.808 1.016-.99 1.225-.183.208-.365.234-.678.078-.312-.157-1.318-.486-2.51-1.55-.927-.827-1.554-1.85-1.736-2.162-.183-.312-.02-.48.137-.636.14-.14.312-.365.469-.548.156-.183.208-.313.312-.522.104-.208.052-.39-.026-.548-.078-.157-.705-1.7-.966-2.328-.254-.61-.512-.528-.705-.538l-.6-.011a1.15 1.15 0 0 0-.834.39c-.287.313-1.095 1.07-1.095 2.61s1.122 3.026 1.278 3.235c.156.208 2.207 3.37 5.347 4.726.747.323 1.33.516 1.784.66.749.238 1.43.204 1.969.124.6-.09 1.85-.756 2.11-1.487.26-.73.26-1.356.183-1.487-.078-.13-.286-.208-.6-.365Z"/></symbol>
-  <symbol id="i-email" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m3.5 6 8.5 7 8.5-7"/></symbol>
-  <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3Z"/></symbol>
-  <symbol id="i-ubicacion" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 22s7-7.6 7-13a7 7 0 1 0-14 0c0 5.4 7 13 7 13Z"/><circle cx="12" cy="9" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-
-  <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v7h4v-7h3l1-4h-4V9c0-.6.4-1 1-1Z"/></symbol>
-  <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M21.6 7.2s-.2-1.5-.9-2.2c-.8-.9-1.7-.9-2.2-.9C15.3 4 12 4 12 4s-3.3 0-6.5.1c-.5 0-1.4 0-2.2.9-.7.7-.9 2.2-.9 2.2S2.2 9 2.2 10.7v1.6c0 1.7.2 3.5.2 3.5s.2 1.5.9 2.2c.8.9 1.9.9 2.4 1 1.7.2 7.3.2 7.3.2s3.3 0 6.5-.1c.5 0 1.4 0 2.2-.9.7-.7.9-2.2.9-2.2s.2-1.7.2-3.5v-1.6c0-1.7-.2-3.5-.2-3.5ZM9.9 14.6V8.9l5.8 2.9-5.8 2.8Z"/></symbol>
-  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
-  <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M14 3h3c.2 1.9 1.4 3.4 3.4 3.7v3c-1.3 0-2.5-.4-3.4-1.1v6.6c0 3.2-2.6 5.8-5.8 5.8S5.4 17.4 5.4 14.2 8 8.4 11.2 8.4c.3 0 .6 0 .9.1v3.1a2.8 2.8 0 1 0 1.9 2.6V3Z"/></symbol>
-
-  <!-- iconos de beneficios -->
-  <symbol id="i-universidad" viewBox="0 0 48 48"><path d="M24 6 4 16l20 10 20-10L24 6Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 21v10c0 3 5.4 6 12 6s12-3 12-6V21" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M40 18v12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
-  <symbol id="i-docente" viewBox="0 0 48 48"><circle cx="24" cy="15" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M8 41c0-8.8 7.2-14 16-14s16 5.2 16 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
-  <symbol id="i-practica" viewBox="0 0 48 48"><rect x="7" y="11" width="34" height="21" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M4 37h40M19 37l1.5-6h7l1.5 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="m16 21 5 5 11-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
-  <symbol id="i-modalidad" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M7 24h34M24 7c4.2 4.2 6.3 9.6 6.3 17S28.2 41 24 41c-4.2-4.2-6.3-9.6-6.3-17S19.8 11.2 24 7Z" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
-
-  <!-- ilustraciones de bloque (marcadores genéricos, reemplazables) -->
-  <symbol id="il-presentacion" viewBox="0 0 320 320">
-    <circle cx="160" cy="160" r="150" fill="var(--celeste-050)"/>
-    <path d="M0 235 L40 210 L85 240 L130 195 L175 230 L220 190 L265 222 L320 200 V320 H0 Z" fill="var(--celeste-100)"/>
-    <rect x="88" y="118" width="144" height="96" rx="8" fill="var(--azul-oscuro)"/>
-    <rect x="100" y="130" width="120" height="72" rx="3" fill="var(--celeste-050)"/>
-    <rect x="108" y="140" width="70" height="6" rx="3" fill="var(--azul-claro)"/>
-    <rect x="108" y="152" width="90" height="6" rx="3" fill="var(--azul-claro)"/>
-    <rect x="108" y="164" width="55" height="6" rx="3" fill="var(--celeste)"/>
-    <rect x="70" y="214" width="180" height="10" rx="5" fill="var(--azul-medio)"/>
-    <circle cx="230" cy="100" r="26" fill="var(--celeste)"/>
-    <path d="m219 100 8 8 16-16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="il-director" viewBox="0 0 280 280">
-    <circle cx="140" cy="140" r="140" fill="var(--azul-oscuro)"/>
-    <circle cx="140" cy="118" r="46" fill="var(--celeste-200)"/>
-    <path d="M60 260c0-48 36-84 80-84s80 36 80 84" fill="var(--celeste-200)"/>
-    <circle cx="140" cy="140" r="138" fill="none" stroke="var(--celeste)" stroke-width="3" opacity=".7"/>
-  </symbol>
-  <symbol id="il-certificacion" viewBox="0 0 400 300">
-    <rect width="400" height="300" rx="18" fill="var(--azul-oscuro)"/>
-    <circle cx="200" cy="140" r="70" fill="none" stroke="var(--celeste)" stroke-width="3" opacity=".5"/>
-    <circle cx="200" cy="130" r="42" fill="var(--celeste-200)"/>
-    <path d="m184 130 11 11 22-22" stroke="var(--azul-oscuro)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="m165 165-10 34 18-8 11 16 12-28" fill="var(--celeste-300)"/>
-    <path d="m235 165 10 34-18-8-11 16-12-28" fill="var(--celeste-300)"/>
-  </symbol>
-  <symbol id="il-curso-generico" viewBox="0 0 320 200">
-    <rect width="320" height="200" fill="var(--celeste-050)"/>
-    <rect x="40" y="50" width="240" height="120" rx="8" fill="var(--azul-medio)"/>
-    <rect x="56" y="66" width="140" height="10" rx="5" fill="var(--celeste-100)"/>
-    <rect x="56" y="86" width="180" height="10" rx="5" fill="var(--celeste-100)"/>
-    <rect x="56" y="106" width="100" height="10" rx="5" fill="var(--celeste)"/>
-    <circle cx="238" cy="132" r="20" fill="var(--celeste)"/>
-  </symbol>
-
-</defs>
-</svg>
-
-<!-- =========================================================
-     BLOQUE 1: CABECERA / NAVEGACIÓN
-     ========================================================= -->
-<header class="cabecera" id="inicio">
-
-  <div class="barra-nav">
-    <div class="barra-nav__interior contenedor">
-
-      <a href="#inicio" class="marca">
-        <img src="img/logo-circle.png" alt="Instituto de Sistemas Cusco" class="marca__logo">
-        <span class="marca__texto">
-          <strong>Instituto<br/> de Sistemas Cusco</strong>
-          <em>Universidad Nacional<br/> de San Antonio Abad del Cusco</em>
-        </span>
-      </a>
-
-      <nav class="nav-principal" id="navPrincipal" aria-label="Navegación principal">
-        <ul class="nav-principal__enlaces">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#presentacion">Presentación</a></li>
-          <li><a href="#director">Mensaje del Director</a></li>
-          <li><a href="#cursos">Cursos que dictamos</a></li>
-          <li><a href="#certificacion">Certificación</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <!-- Botones circulares destacados: ACTUALIZAR href cuando existan los enlaces definitivos -->
-      <div class="cta-circulares">
-        <a href="#validacion" class="cta-circular cta-circular--celeste" title="Valida Certificados emitidos">
-          <span class="cta-circular__icono"><svg width="26" height="26"><use href="#i-certificado"/></svg></span>
-          <span class="cta-circular__texto">Valida tus<br>Certificados y Titulos técnicos</span>
-        </a>
-      </div>
-
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="menuMovil" aria-label="Abrir menú">
-        <svg width="26" height="26"><use href="#i-menu"/></svg>
-      </button>
-
-    </div>
-  </div>
-
-  <!-- ===================== HERO ===================== -->
-  <div class="hero">
-    <div class="hero__fondo" style="background-image:url('img/edificio.jpg')"></div>
-    <div class="hero__capa"></div>
-    <div class="hero__contenido contenedor">
-      <h1 class="hero__titulo">Formación en tecnologías de información con el respaldo de la <span>UNSAAC</span></h1>
-      <p class="hero__subtitulo">Cursos de Ofimática válidos para el bachillerato, cursos especializados de areas profesionales usando I.A. orientado a estudiantes, profesionales y público en general.</p>
-      <div class="hero__acciones">
-        <a href="#cursos" class="boton boton--celeste boton--grande">Conoce nuestros cursos</a>
-        <a href="#contacto" class="boton boton--contorno-claro boton--grande">Estudia con nosotros - Contactanos</a>
-      </div>
-    </div>
-    <a href="#presentacion" class="hero__bajar" aria-label="Bajar a la siguiente sección">
-      <svg width="22" height="22"><use href="#i-chevron"/></svg>
-    </a>
-  </div>
-
-</header>
-
-<!-- Menú móvil desplegable -->
-<div class="menu-movil" id="menuMovil">
-  <div class="menu-movil__cabecera">
-    <img src="img/logo-circle.png" alt="ISC" class="menu-movil__logo">
-    <button class="nav-toggle" id="menuMovilCerrar" aria-label="Cerrar menú">
-      <svg width="26" height="26"><use href="#i-close"/></svg>
-    </button>
-  </div>
-  <div class="menu-movil__ctas">
-    <a href="#" class="boton boton--celeste">Valida Certificados emitidos</a>
-    <a href="#" class="boton boton--contorno-claro">Validación de Título Técnico Profesional</a>
-  </div>
-  <ul class="menu-movil__enlaces">
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#presentacion">Presentación</a></li>
-    <li><a href="#director">Mensaje del Director</a></li>
-    <li><a href="#cursos">Cursos que dictamos</a></li>
-    <li><a href="#certificacion">Certificación</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-</div>
-<div class="menu-movil__fondo" id="menuMovilFondo"></div>
-
-<main>
-
-  <!-- =========================================================
-       BLOQUE 2: PRESENTACIÓN DEL INSTITUTO DE SISTEMAS
-       ========================================================= -->
-  <section class="seccion" id="presentacion">
-    <div class="contenedor columnas anima-al-scroll">
-
-      <div class="columnas__media">
-        <div class="tarjeta-media">
-          <img src="img/grupo.jpg" alt="Estudiantes del Instituto de Sistemas Cusco" class="tarjeta-media__foto">
-        </div>
-      </div>
-
-      <div class="columnas__texto">
-        <p class="ojo-de-texto">// quiénes somos</p>
-        <h2 class="titulo-seccion">Presentación del Instituto de Sistemas</h2>
-        <p>La Dirección del Instituto de Sistemas de la Universidad Nacional de San Antonio Abad del Cusco te da una cordial bienvenida.</p>
-        <p>Contribuimos y complementamos la formación profesional ofreciendo cursos de capacitación en tecnologías de información y comunicación en las diferentes áreas del quehacer humano, adecuándonos a las necesidades y requerimientos de los diferentes sectores productivos.</p>
-        <p>Nuestra formación está dirigida a estudiantes, egresados, docentes, personal administrativo y público en general.</p>
-        <p>Contamos con el respaldo de la primera casa de estudios de la región y nuestros docentes son profesionales con un alto nivel de preparación.</p>
-        <p>Sabemos que con tu empeño y dedicación lograrás alcanzar tus metas.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================
-       BLOQUE 3: MENSAJE DEL DIRECTOR
-       ========================================================= -->
-  <section class="seccion seccion--tenue" id="director">
-    <div class="contenedor columnas columnas--invertida anima-al-scroll">
-
-      <div class="columnas__media">
-        <!-- FOTO DEL DIRECTOR: reemplazar esta ilustración por la fotografía oficial -->
-        <div class="tarjeta-retrato">
-          <img src="img/maritza.png" alt="Mgt. Maritza Katherine Irpanocca — Directora del ISC" class="tarjeta-retrato__foto"
-               onerror="this.replaceWith(document.getElementById('marcador-director').content.cloneNode(true).firstElementChild)">
-        </div>
-      </div>
-
-      <div class="columnas__texto">
-        <p class="ojo-de-texto">// palabras de la dirección</p>
-        <h2 class="titulo-seccion">Mensaje del Director</h2>
-        <p>El Instituto de Sistemas Cusco de la Universidad Nacional de San Antonio Abad del Cusco tiene el compromiso de contribuir a la formación y actualización tecnológica de estudiantes, profesionales y público en general. En un entorno en constante transformación, promovemos el desarrollo de competencias digitales que permitan afrontar los nuevos desafíos académicos y laborales, mediante una formación práctica, accesible y vinculada con las necesidades de nuestra región.</p>
-        <p>La Inteligencia Artificial, el análisis de datos y las nuevas tecnologías digitales están transformando la manera en que estudiamos, trabajamos y generamos conocimiento. Por ello, incorporamos estas herramientas en nuestros programas de capacitación junto con tecnologías informáticas de amplia aplicación, buscando que nuestros estudiantes no solo aprendan a utilizar la tecnología, sino que desarrollen la capacidad de aplicarla de manera productiva, responsable e innovadora en sus actividades profesionales.</p>
-        <p>Con el respaldo de la Universidad Nacional de San Antonio Abad del Cusco, infraestructura tecnológica y docentes especializados, reafirmamos nuestro compromiso de ofrecer una formación actualizada y de calidad. Invitamos a estudiantes, egresados, profesionales, instituciones y público en general a formar parte del Instituto de Sistemas Cusco y a prepararse con nosotros para las oportunidades y desafíos de una sociedad cada vez más digital e impulsada por la Inteligencia Artificial.</p>
-        <p class="firma-director">Mgt. Maritza Katherine Irpanocca<span>Directora — Instituto de Sistemas Cusco</span></p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================
-       BLOQUE 4: CURSOS QUE IMPARTIMOS
-       ========================================================= -->
-  <section class="seccion" id="cursos">
-    <div class="contenedor">
-
-      <div class="cabecera-seccion anima-al-scroll">
-        <p class="ojo-de-texto">// oferta formativa</p>
-        <h2 class="titulo-seccion">Cursos que impartimos</h2>
-        <p class="texto-guia">Programas prácticos, dictados por docentes con alto nivel de preparación, pensados para que apliques lo aprendido desde el primer día.</p>
-      </div>
-
-      <div class="rejilla-cursos">
-
-        <!-- Curso 1 -->
-        <article class="tarjeta-curso anima-al-scroll">
-          <!-- IMAGEN DEL CURSO: reemplazar por fotografía real del curso -->
-          <div class="tarjeta-curso__imagen"><svg viewBox="0 0 320 200"><use href="#il-curso-generico"/></svg></div>
-          <div class="tarjeta-curso__cuerpo">
-            <h3>Office Básico <span class="badge-estrella" title="Curso válido para el Bachillerato"><svg width="16" height="16"><use href="#i-star"/></svg></span></h3>
-            <p class="tarjeta-curso__nota">Válido para el Bachillerato</p>
-            <p>Duración: 3 meses. Aprende Word, Excel y PowerPoint utilizando herramientas de Inteligencia Artificial.</p>
-            <a href="#contacto" class="enlace-flecha">Más Información <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <!-- Curso 2 -->
-        <article class="tarjeta-curso anima-al-scroll">
-          <div class="tarjeta-curso__imagen"><svg viewBox="0 0 320 200"><use href="#il-curso-generico"/></svg></div>
-          <div class="tarjeta-curso__cuerpo">
-            <h3>Office Intensivo <span class="badge-estrella" title="Curso válido para el Bachillerato"><svg width="16" height="16"><use href="#i-star"/></svg></span></h3>
-            <p class="tarjeta-curso__nota">Válido para el Bachillerato</p>
-            <p>Duración: 1 semana. Aprende Word, Excel y PowerPoint utilizando herramientas de Inteligencia Artificial.</p>
-            <a href="#contacto" class="enlace-flecha">Más Información <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <!-- Curso 3 -->
-        <article class="tarjeta-curso anima-al-scroll">
-          <div class="tarjeta-curso__imagen"><svg viewBox="0 0 320 200"><use href="#il-curso-generico"/></svg></div>
-          <div class="tarjeta-curso__cuerpo">
-            <h3>Office Acelerado <span class="badge-estrella" title="Curso válido para el Bachillerato"><svg width="16" height="16"><use href="#i-star"/></svg></span></h3>
-            <p class="tarjeta-curso__nota">Válido para el Bachillerato</p>
-            <p>Duración: un fin de semana. Aprende Word, Excel y PowerPoint utilizando herramientas de Inteligencia Artificial.</p>
-            <a href="#contacto" class="enlace-flecha">Más Información <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <!-- Curso 4 -->
-        <article class="tarjeta-curso anima-al-scroll">
-          <div class="tarjeta-curso__imagen"><svg viewBox="0 0 320 200"><use href="#il-curso-generico"/></svg></div>
-          <div class="tarjeta-curso__cuerpo">
-            <h3>Power BI</h3>
-            <p>Aprenderás a analizar información y elaborar gráficos, indicadores, reportes y tablas dinámicas.</p>
-            <a href="#contacto" class="enlace-flecha">Más Información <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <!-- Curso 5 -->
-        <article class="tarjeta-curso anima-al-scroll">
-          <div class="tarjeta-curso__imagen"><svg viewBox="0 0 320 200"><use href="#il-curso-generico"/></svg></div>
-          <div class="tarjeta-curso__cuerpo">
-            <h3>Inteligencia Artificial para apoyo administrativo</h3>
-            <p>Aprende a utilizar herramientas de Inteligencia Artificial para mejorar y agilizar las actividades de tu trabajo diario.</p>
-            <a href="#contacto" class="enlace-flecha">Más Información <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <!-- Curso 6 -->
-        <article class="tarjeta-curso anima-al-scroll">
-          <div class="tarjeta-curso__imagen"><svg viewBox="0 0 320 200"><use href="#il-curso-generico"/></svg></div>
-          <div class="tarjeta-curso__cuerpo">
-            <h3>Inteligencia Artificial para redacción de textos académicos</h3>
-            <p>Aprenderás a utilizar la Inteligencia Artificial como herramienta de apoyo para la planificación, redacción y mejora de textos académicos.</p>
-            <a href="#contacto" class="enlace-flecha">Más Información <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <!-- Curso 7 -->
-        <article class="tarjeta-curso anima-al-scroll">
-          <div class="tarjeta-curso__imagen"><svg viewBox="0 0 320 200"><use href="#il-curso-generico"/></svg></div>
-          <div class="tarjeta-curso__cuerpo">
-            <h3>AutoCAD</h3>
-            <p>Aprenderás herramientas de dibujo y diseño técnico aplicadas al diseño de estructuras.</p>
-            <a href="#contacto" class="enlace-flecha">Más Información <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <!-- Curso 8 -->
-        <article class="tarjeta-curso anima-al-scroll">
-          <div class="tarjeta-curso__imagen"><svg viewBox="0 0 320 200"><use href="#il-curso-generico"/></svg></div>
-          <div class="tarjeta-curso__cuerpo">
-            <h3>ArcGIS</h3>
-            <p>Aprenderás herramientas de georreferenciación, sistemas de información geográfica y manejo de mapas.</p>
-            <a href="#contacto" class="enlace-flecha">Más Información <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-        <!-- Curso 9 -->
-        <article class="tarjeta-curso anima-al-scroll">
-          <div class="tarjeta-curso__imagen"><svg viewBox="0 0 320 200"><use href="#il-curso-generico"/></svg></div>
-          <div class="tarjeta-curso__cuerpo">
-            <h3>S10</h3>
-            <p>Aprenderás costos, presupuestos y herramientas necesarias para la elaboración y gestión de proyectos.</p>
-            <a href="#contacto" class="enlace-flecha">Más Información <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="cursos__cta anima-al-scroll">
-        <a href="#contacto" class="boton boton--celeste boton--grande">Para matricularte o recibir información</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================
-       BLOQUE 5: GARANTIZA LO QUE SABES (CERTIFICACIÓN)
-       ========================================================= -->
-  <section class="seccion seccion--oscura" id="certificacion">
-    <div class="contenedor columnas anima-al-scroll">
-
-      <div class="columnas__media">
-        <!-- IMAGEN GENÉRICA DE CERTIFICACIÓN: reemplazar por una imagen real de evaluación/certificación -->
-        <div class="tarjeta-certificacion">
-          <svg viewBox="0 0 400 300" class="tarjeta-certificacion__ilustracion" aria-hidden="true"><use href="#il-certificacion"/></svg>
-        </div>
-      </div>
-
-      <div class="columnas__texto">
-        <p class="ojo-de-texto ojo-de-texto--claro">// exámenes de suficiencia</p>
-        <h2 class="titulo-seccion titulo-seccion--claro">Garantiza lo que sabes</h2>
-        <p class="texto-claro">¿Ya manejas herramientas informáticas y deseas respaldar tus conocimientos con una certificación?</p>
-        <p class="texto-claro">El Instituto de Sistemas Cusco ofrece exámenes de suficiencia mediante los cuales podrás demostrar tus conocimientos y obtener un certificado emitido por el Instituto de Sistemas Cusco de la UNSAAC.</p>
-        <p class="texto-claro">Evalúa tus competencias, demuestra lo que sabes y obtén una certificación que respalde tus conocimientos.</p>
-        <a href="#contacto" class="boton boton--celeste boton--grande">Solicitar información sobre certificación</a>
-      </div>
-
-    </div>
-  </section>
- 
-  <!-- =========================================================
-       BLOQUE 5B: VALIDA TUS CERTIFICADOS Y TÍTULOS TÉCNICOS
-       ========================================================= -->
-  <section class="seccion" id="validacion">
-    <div class="contenedor">
- 
-      <div class="cabecera-seccion anima-al-scroll">
-        <p class="ojo-de-texto">// verificación oficial</p>
-        <h2 class="titulo-seccion">Valida tus certificados y títulos técnicos emitidos por el ISC</h2>
-        <p class="texto-guia">Verifica la autenticidad de tus documentos a través de nuestras plataformas oficiales.</p>
-      </div>
- 
-      <div class="rejilla-validacion anima-al-scroll">
- 
-        <!-- ENLACE 1: actualizar href con la URL real del Google Site -->
-        <a href="#" target="_blank" rel="noopener" class="tarjeta-validacion">
-          <div class="tarjeta-validacion__icono"><svg width="30" height="30"><use href="#i-certificado"/></svg></div>
-          <h3>(1) Valida tus <span class="resaltado-naranja">CERTIFICADOS</span> emitidos por el ISC</h3>
-          <p>Plataforma: desde nuestra Web en Google</p>
-          <span class="enlace-flecha">Ir a validar <svg width="16" height="16"><use href="#i-arrow"/></svg></span>
-        </a>
- 
-        <!-- ENLACE 2: actualizar href con la URL real del Google Site -->
-        <a href="#" target="_blank" rel="noopener" class="tarjeta-validacion">
-          <div class="tarjeta-validacion__icono"><svg width="30" height="30"><use href="#i-titulo"/></svg></div>
-          <h3>(2) Valida tu <span class="resaltado-naranja">DIPLOMA de carrera técnica</span> ISC</h3>
-          <p>Plataforma: desde nuestra Web en Google</p>
-          <span class="enlace-flecha">Ir a validar <svg width="16" height="16"><use href="#i-arrow"/></svg></span>
-        </a>
- 
-        <!-- ENLACE 3: actualizar href con la URL real del sitio UNSAAC -->
-        <a href="http://ccomputo.unsaac.edu.pe/?op=infodoc" target="_blank" rel="noopener" class="tarjeta-validacion">
-          <div class="tarjeta-validacion__icono"><svg width="30" height="30"><use href="#i-titulo"/></svg></div>
-          <h3>(3) Valida tu <span class="resaltado-naranja">DIPLOMA de carrera técnica</span> ISC</h3>
-          <p>Plataforma: desde la Web de la UNSAAC</p>
-          <span class="enlace-flecha">Ir a validar <svg width="16" height="16"><use href="#i-arrow"/></svg></span>
-        </a>
- 
-      </div>
-    </div>
-  </section>
- 
-  <!-- =========================================================
-       BLOQUE 6: POR QUÉ ESTUDIAR CON NOSOTROS
-       ========================================================= -->
-  <section class="seccion seccion--tenue" id="beneficios">
-    <div class="contenedor">
-
-      <div class="cabecera-seccion anima-al-scroll">
-        <p class="ojo-de-texto">// nuestros diferenciales</p>
-        <h2 class="titulo-seccion">Por qué estudiar con nosotros</h2>
-      </div>
-
-      <div class="rejilla-beneficios anima-al-scroll">
-
-        <div class="tarjeta-beneficio">
-          <div class="tarjeta-beneficio__icono"><svg width="34" height="34"><use href="#i-universidad"/></svg></div>
-          <h3>Respaldo institucional</h3>
-          <p>Certificación avalada por la UNSAAC, la primera casa de estudios de la región.</p>
-        </div>
-
-        <div class="tarjeta-beneficio">
-          <div class="tarjeta-beneficio__icono"><svg width="34" height="34"><use href="#i-docente"/></svg></div>
-          <h3>Docentes especializados</h3>
-          <p>Profesionales con alto nivel de preparación y experiencia aplicada.</p>
-        </div>
-
-        <div class="tarjeta-beneficio">
-          <div class="tarjeta-beneficio__icono"><svg width="34" height="34"><use href="#i-practica"/></svg></div>
-          <h3>Formación práctica</h3>
-          <p>Cursos orientados a la aplicación real desde el primer día de clases.</p>
-        </div>
-
-        <div class="tarjeta-beneficio">
-          <div class="tarjeta-beneficio__icono"><svg width="34" height="34"><use href="#i-certificado"/></svg></div>
-          <h3>Certificación oficial</h3>
-          <p>Constancias y certificados emitidos por el Instituto de Sistemas Cusco.</p>
-        </div>
-
-        <div class="tarjeta-beneficio">
-          <div class="tarjeta-beneficio__icono"><svg width="34" height="34"><use href="#i-modalidad"/></svg></div>
-          <h3>Presencial y virtual</h3>
-          <p>Aula virtual, videoconferencia y recursos en la nube para estudiar donde estés.</p>
-        </div>
-
-        <div class="tarjeta-beneficio">
-          <div class="tarjeta-beneficio__icono"><svg width="34" height="34"><use href="#i-practica"/></svg></div>
-          <h3>Tecnologías actuales</h3>
-          <p>Herramientas de Inteligencia Artificial integradas en nuestros programas.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<!-- =========================================================
-     BLOQUE 7: CONTACTO
-     ========================================================= -->
-<section class="seccion seccion--contacto" id="contacto">
-  <div class="contenedor">
-
-    <div class="cabecera-seccion cabecera-seccion--claro anima-al-scroll">
-      <p class="ojo-de-texto ojo-de-texto--claro">// escríbenos</p>
-      <h2 class="titulo-seccion titulo-seccion--claro">Contacto</h2>
-      <p class="texto-claro">Instituto de Sistemas Cusco — Universidad Nacional de San Antonio Abad del Cusco</p>
-    </div>
-
-    <div class="contacto__rejilla anima-al-scroll">
-
-      <div class="contacto__tarjeta">
-        <div class="contacto__icono"><svg width="24" height="24"><use href="#i-whatsapp"/></svg></div>
-        <h3>Celular / WhatsApp</h3>
-        <!-- Números tomados de contactos.png: actualizar aquí si cambian -->
-        <ul class="contacto__lista">
-          <li><a href="https://wa.me/51934957982" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#i-whatsapp"/></svg> 934 957 982</a></li>
-          <li><a href="https://wa.me/51943652335" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#i-whatsapp"/></svg> 943 652 335</a></li>
-          <li><a href="https://wa.me/51951278489" target="_blank" rel="noopener"><svg width="18" height="18"><use href="#i-whatsapp"/></svg> 951 278 489</a></li>
-        </ul>
-      </div>
-
-      <div class="contacto__tarjeta">
-        <div class="contacto__icono"><svg width="24" height="24"><use href="#i-email"/></svg></div>
-        <h3>Correo institucional</h3>
-        <p><a href="mailto:cursoslibres.isc@unsaac.edu.pe">cursoslibres.isc@unsaac.edu.pe</a></p>
-        <h3>Sitio institucional - Google</h3>
-        <p><a href="http://sites.google.com/unsaac.edu.pe/isc" target="_blank" rel="noopener">sites.google.com/unsaac.edu.pe/isc</a></p>
-      </div>
-
-      <div class="contacto__tarjeta">
-        <div class="contacto__icono"><svg width="24" height="24"><use href="#i-ubicacion"/></svg></div>
-        <h3>Ubicación</h3>
-        <!-- Dirección física: actualizar si cambia -->
-        <p>Av. De la Cultura 733, <br> 5to PisoPabellón del Centro de Idiomas<br>Cusco — Perú</p>
-      </div>
-
-    </div>
-
-    <div class="contacto__redes anima-al-scroll">
-      <p>Síguenos en nuestras redes sociales</p>
-      <div class="redes-sociales">
-        <!-- ENLACES DE REDES SOCIALES: reemplazar "#" por las URL definitivas -->
-        <a href="#" aria-label="Facebook" class="redes-sociales__icono"><svg width="22" height="22"><use href="#i-facebook"/></svg></a>
-        <a href="#" aria-label="YouTube" class="redes-sociales__icono"><svg width="22" height="22"><use href="#i-youtube"/></svg></a>
-        <a href="#" aria-label="Instagram" class="redes-sociales__icono"><svg width="22" height="22"><use href="#i-instagram"/></svg></a>
-        <a href="#" aria-label="TikTok" class="redes-sociales__icono"><svg width="22" height="22"><use href="#i-tiktok"/></svg></a>
-      </div>
-    </div>
-
-    <div class="contacto__logo">
-      <img src="img/logo-circle.png" alt="Instituto de Sistemas Cusco">
-    </div>
-
-  </div>
-</section>
-
-<!-- =========================================================
-     PIE DE PÁGINA
-     ========================================================= -->
-<footer class="pie-pagina">
-  <div class="contenedor pie-pagina__interior">
-    <p class="pie-pagina__nombre">Instituto de Sistemas Cusco — Universidad Nacional de San Antonio Abad del Cusco</p>
-    <p class="pie-pagina__derechos">&copy; 2026 Instituto de Sistemas Cusco — UNSAAC. Todos los derechos reservados.</p>
-  </div>
-</footer>
-
-<!-- Botón flotante de WhatsApp: abre chat directo con el primer número de contacto -->
-<a href="https://wa.me/51934957982" target="_blank" rel="noopener"
-   class="boton-whatsapp-flotante" aria-label="Escríbenos por WhatsApp">
-  <svg width="28" height="28"><use href="#i-whatsapp"/></svg>
-</a>
-
-<script src="js/main.js"></script>
-</body>
-</html>
-
+/* =========================================================
+   Instituto de Sistemas Cusco — UNSAAC
+   Hoja de estilos principal
+   Paleta institucional: azul oscuro, azul celeste, blanco.
+   Sin dependencias externas (fuentes del sistema operativo).
+   ========================================================= */
+
+:root{
+  /* ---- Color ---- */
+  --azul-oscuro:      #071A30;
+  --azul-marino:       #0A2540;
+  --azul-profundo:     #0E3358;
+  --azul-medio:        #135D95;
+  --azul-claro:        #B9C9DA;
+  --celeste:           #22C3E6;
+  --celeste-600:       #0FA9C9;
+  --celeste-300:       #7FDFF3;
+  --celeste-200:       #BDEEF8;
+  --celeste-100:        #DEF6FB;
+  --celeste-050:        #EEFAFC;
+  --blanco:            #FFFFFF;
+  --texto:             #0E2238;
+  --texto-suave:       #4C6478;
+
+  /* ---- Tipografía (fuentes del sistema, sin dependencias externas) ---- */
+  --fuente-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* ---- Layout ---- */
+  --ancho-maximo: 1180px;
+  --radio-sm: 10px;
+  --radio-md: 16px;
+  --radio-lg: 26px;
+  --sombra-1: 0 8px 24px -12px rgba(10,37,64,.22);
+  --sombra-2: 0 24px 48px -20px rgba(10,37,64,.35);
+}
+
+/* ---- Reinicio básico ---- */
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; scroll-padding-top: 84px; }
+body{
+  margin: 0;
+  font-family: var(--fuente-base);
+  color: var(--texto);
+  background: var(--blanco);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width: 100%; display: block; }
+a{ color: inherit; text-decoration: none; }
+ul{ list-style: none; margin: 0; padding: 0; }
+h1, h2, h3{ margin: 0 0 .5em; color: var(--azul-marino); line-height: 1.15; font-weight: 800; }
+p{ margin: 0 0 1.1em; }
+svg{ display: block; }
+
+.contenedor{
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+
+/* =========================================================
+   Botones
+   ========================================================= */
+.boton{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .95rem;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+  min-height: 46px; /* tamaño táctil adecuado */
+}
+.boton--grande{ padding: 16px 30px; font-size: 1.02rem; }
+.boton--celeste{
+  background: var(--celeste);
+  color: var(--azul-oscuro);
+  box-shadow: 0 10px 24px -10px rgba(34,195,230,.5);
+}
+.boton--celeste:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(34,195,230,.6); }
+.boton--contorno-claro{
+  background: transparent;
+  border-color: rgba(255,255,255,.55);
+  color: var(--blanco);
+}
+.boton--contorno-claro:hover{ background: rgba(255,255,255,.12); border-color: var(--blanco); }
+
+.enlace-flecha{
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; color: var(--azul-medio);
+  border-bottom: 1.5px solid transparent;
+  transition: border-color .18s ease, gap .18s ease;
+}
+.enlace-flecha:hover{ border-color: currentColor; gap: 9px; }
+
+/* =========================================================
+   Cabecera y navegación
+   ========================================================= */
+.cabecera{ position: relative; isolation: isolate; }
+
+.barra-nav{
+  position: sticky; top: 0; z-index: 60;
+  background: rgba(246,250,252,.92);
+  backdrop-filter: saturate(160%) blur(10px);
+  border-bottom: 1px solid rgba(14,34,56,.08);
+}
+.barra-nav__interior{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px;
+  height: 80px;
+}
+
+.marca{ display: flex; align-items: center; gap: 12px; min-width: 0; }
+.marca__logo{ width: 65px; height: 65px; object-fit: contain; flex-shrink: 0; }
+.marca__texto{ display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+.marca__texto strong{ font-size: .98rem; color: var(--azul-marino); font-weight: 800; white-space: nowrap; }
+.marca__texto em{ font-style: normal; font-size: .72rem; color: var(--texto-suave); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.nav-principal__enlaces{ display: flex; align-items: center; gap: 24px; }
+.nav-principal__enlaces a{
+  font-size: .92rem; font-weight: 700; color: var(--azul-profundo);
+  position: relative; padding: 6px 0; white-space: nowrap;
+}
+.nav-principal__enlaces a::after{
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: var(--celeste); transform: scaleX(0); transform-origin: left;
+  transition: transform .2s ease;
+}
+.nav-principal__enlaces a:hover::after{ transform: scaleX(1); }
+
+/* Botones circulares de cabecera (Valida Certificados / Validación de Título) */
+.cta-circulares{ display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.cta-circular{
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  width: 78px; height: 78px; border-radius: 50%;
+  text-align: center; gap: 2px;
+  box-shadow: var(--sombra-1);
+  transition: transform .2s ease, box-shadow .2s ease;
+  border: 2px solid transparent;
+}
+.cta-circular:hover{ transform: translateY(-3px) scale(1.03); box-shadow: var(--sombra-2); }
+.cta-circular--celeste{ background: var(--celeste); color: var(--azul-oscuro); }
+.cta-circular--oscuro{ background: var(--azul-marino); color: var(--blanco); border-color: var(--celeste); }
+.cta-circular__icono{ line-height: 0; }
+.cta-circular__texto{ font-size: .58rem; font-weight: 800; line-height: 1.15; text-transform: uppercase; letter-spacing: .01em; }
+
+.nav-toggle{
+  display: none; background: none; border: none; color: var(--azul-marino);
+  padding: 6px; cursor: pointer; flex-shrink: 0;
+}
+
+@media (max-width: 1080px){
+  .nav-principal{ display: none; }
+  .nav-toggle{ display: block; }
+}
+@media (max-width: 620px){
+  .cta-circulares{ display: none; }
+}
+
+/* Menú móvil */
+.menu-movil{
+  position: fixed; top: 0; right: 0; height: 100%; width: min(340px, 88vw);
+  background: var(--azul-oscuro); color: var(--blanco); z-index: 100;
+  transform: translateX(100%); transition: transform .32s cubic-bezier(.2,.8,.25,1);
+  padding: 20px 22px; display: flex; flex-direction: column; gap: 24px;
+  overflow-y: auto;
+}
+.menu-movil.esta-abierto{ transform: translateX(0); }
+.menu-movil__cabecera{ display: flex; align-items: center; justify-content: space-between; }
+.menu-movil__logo{ width: 42px; height: 42px; }
+.menu-movil__cabecera .nav-toggle{ display: block; color: var(--blanco); }
+.menu-movil__ctas{ display: flex; flex-direction: column; gap: 10px; }
+.menu-movil__ctas .boton{ width: 100%; }
+.menu-movil__enlaces{ display: flex; flex-direction: column; gap: 2px; }
+.menu-movil__enlaces a{
+  display: block; padding: 13px 4px; font-weight: 700; font-size: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,.09);
+}
+.menu-movil__fondo{
+  position: fixed; inset: 0; background: rgba(6,20,36,.55); z-index: 90;
+  opacity: 0; pointer-events: none; transition: opacity .25s ease;
+}
+.menu-movil__fondo.esta-abierto{ opacity: 1; pointer-events: auto; }
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero{
+  position: relative;
+  min-height: 62vh;
+  display: flex; align-items: flex-start;   /* antes: center — ahora el texto se pega arriba */
+  overflow: hidden;
+  color: var(--blanco);
+}
+.hero__fondo{
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center 65%;
+  transform: scale(1.05);
+}
+.hero__capa{
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6,20,36,.55) 0%, rgba(6,20,36,.72) 55%, rgba(6,20,36,.93) 100%),
+    linear-gradient(100deg, rgba(6,26,48,.88) 0%, rgba(6,26,48,.35) 55%, rgba(6,26,48,.15) 100%);
+}
+.hero__contenido{ position: relative; z-index: 2; padding: 64px 24px 56px; max-width: 97%; margin: 3; }
+.ojo-de-texto{
+  text-transform: uppercase; letter-spacing: .12em;
+  font-size: .78rem; font-weight: 800; color: var(--azul-medio); margin: 0 0 14px;
+}
+.resaltado-naranja{ color: #F2822E; }
+.ojo-de-texto--claro{ color: var(--celeste-300); }
+.hero__titulo{
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800; color: var(--blanco); margin-bottom: .4em;
+}
+.hero__titulo span{ color: var(--celeste); }
+.hero__subtitulo{
+  font-size: 1.12rem; color: rgba(255,255,255,.88); max-width: 97%; margin-bottom: 1.9em;
+}
+.hero__acciones{ display: flex; gap: 14px; flex-wrap: wrap; }
+.hero__bajar{
+  position: absolute; left: 50%; bottom: 32px; transform: translateX(-50%);
+  z-index: 2; color: var(--blanco); opacity: .85;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.5);
+  display: flex; align-items: center; justify-content: center;
+  animation: flotar 2.2s ease-in-out infinite;
+}
+.hero__bajar:hover{ opacity: 1; border-color: var(--blanco); }
+@keyframes flotar{
+  0%, 100%{ transform: translateX(-50%) translateY(0); }
+  50%{ transform: translateX(-50%) translateY(6px); }
+}
+
+/* =========================================================
+   Secciones genéricas
+   ========================================================= */
+.seccion{ padding: 100px 0; position: relative; }
+.seccion--tenue{ background: var(--celeste-050); }
+.seccion--oscura{
+  background: linear-gradient(160deg, var(--azul-oscuro) 0%, var(--azul-profundo) 100%);
+  color: var(--blanco);
+}
+.seccion--contacto{
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  padding: 100px 0 70px;
+}
+
+.cabecera-seccion{ max-width: 680px; margin: 0 auto 52px; text-align: center; }
+.cabecera-seccion .ojo-de-texto{ justify-content: center; }
+.cabecera-seccion--claro .titulo-seccion{ color: var(--blanco); }
+.titulo-seccion{ font-size: clamp(1.7rem, 3.2vw, 2.3rem); }
+.titulo-seccion--claro{ color: var(--blanco); }
+.texto-guia{ color: var(--texto-suave); font-size: 1.05rem; }
+.texto-claro{ color: rgba(255,255,255,.82); font-size: 1.03rem; }
+
+/* Columnas de dos bloques (texto + imagen) */
+.columnas{
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 64px;
+  align-items: center;
+}
+.columnas--invertida{ grid-template-columns: .95fr 1.05fr; }
+
+/* Bloque "Mensaje del Director": la foto va alineada arriba (junto al título),
+   no centrada respecto a todo el bloque de texto, que es más largo. */
+#director .columnas{ align-items: start; }
+.columnas--invertida .columnas__media{ order: 1; }
+.columnas--invertida .columnas__texto{ order: 2; }
+.columnas__texto p{ color: var(--texto-suave); font-size: 1.02rem; }
+.seccion--oscura .columnas__texto p:not(.texto-claro){ color: rgba(255,255,255,.82); }
+
+.firma-director{
+  margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(14,34,56,.12);
+  font-weight: 800; color: var(--azul-marino); font-size: 1.08rem;
+}
+.firma-director span{ display: block; font-weight: 500; font-size: .86rem; color: var(--texto-suave); margin-top: 3px; }
+
+/* Tarjetas de imagen ilustrativa (marcadores genéricos) */
+.tarjeta-media{
+  background: var(--blanco); border-radius: var(--radio-lg);
+  padding: 20px; box-shadow: var(--sombra-1); border: 1px solid rgba(14,34,56,.06);
+}
+.tarjeta-media__ilustracion{ width: 100%; height: auto; border-radius: var(--radio-md); }
+
+.tarjeta-retrato{
+  max-width: 300px; margin: 0 auto;
+  aspect-ratio: 1 / 1;           /* marco cuadrado fijo -> queda circular con el radio de abajo */
+  border-radius: 50%;
+  overflow: hidden;              /* recorta la imagen al círculo */
+  box-shadow: var(--sombra-2);
+}
+.tarjeta-retrato__foto{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* la imagen llena el marco sin deformarse */
+  object-position: top center;   /* <-- clave: alinea la foto arriba en vez de centrarla */
+}
+
+/* =========================================================
+   Valida tus certificados y títulos técnicos
+   ========================================================= */
+.rejilla-validacion{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.tarjeta-validacion{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: linear-gradient(180deg, var(--celeste-050) 0%, var(--blanco) 22%);
+  border: 1px solid rgba(14,34,56,.08);
+  border-top: 5px solid var(--celeste);
+  border-radius: var(--radio-md);
+  padding: 32px 26px;
+  box-shadow: var(--sombra-1);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.tarjeta-validacion:hover{ transform: translateY(-6px); box-shadow: var(--sombra-2); }
+/* Cada tarjeta con un color de acento distinto */
+.tarjeta-validacion:nth-child(2){ border-top-color: var(--azul-medio); }
+.tarjeta-validacion:nth-child(3){ border-top-color: var(--azul-oscuro); }
+
+.tarjeta-validacion__icono{
+  width: 58px; height: 58px; border-radius: 50%;
+  background: var(--celeste); color: var(--azul-oscuro);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 8px;
+  box-shadow: 0 8px 18px -8px rgba(34,195,230,.55);
+}
+.tarjeta-validacion:nth-child(2) .tarjeta-validacion__icono{
+  background: var(--azul-medio); color: var(--blanco);
+  box-shadow: 0 8px 18px -8px rgba(19,93,149,.55);
+}
+.tarjeta-validacion:nth-child(3) .tarjeta-validacion__icono{
+  background: var(--azul-oscuro); color: var(--celeste-300);
+  box-shadow: 0 8px 18px -8px rgba(7,26,48,.55);
+}
+
+.tarjeta-validacion h3{ font-size: 1.02rem; margin-bottom: 0; }
+.tarjeta-validacion p{ color: var(--texto-suave); font-size: .86rem; margin-bottom: 6px; }
+.tarjeta-validacion .enlace-flecha{
+  margin-top: 8px; font-weight: 800; color: var(--azul-marino);
+}
+.tarjeta-validacion:hover .enlace-flecha{ color: var(--celeste-600); }
+
+.tarjeta-certificacion{
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radio-lg); padding: 16px;
+}
+.tarjeta-certificacion__ilustracion{ width: 100%; height: auto; border-radius: var(--radio-md); }
+
+/* =========================================================
+   Cursos: rejilla de tarjetas
+   ========================================================= */
+.rejilla-cursos{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-top: 8px;
+}
+.tarjeta-curso{
+  background: var(--blanco);
+  border: 1px solid rgba(14,34,56,.08);
+  border-radius: var(--radio-md);
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.tarjeta-curso:hover{ transform: translateY(-7px); box-shadow: var(--sombra-1); border-color: transparent; }
+.tarjeta-curso__imagen{ line-height: 0; background: var(--celeste-050); }
+.tarjeta-curso__imagen svg{ width: 100%; height: auto; }
+.tarjeta-curso__cuerpo{ padding: 22px 22px 26px; }
+.tarjeta-curso h3{
+  font-size: 1.06rem; margin-bottom: .2em;
+  display: flex; align-items: center; gap: 8px;
+}
+.badge-estrella{ color: var(--celeste-600); display: inline-flex; }
+.tarjeta-curso__nota{
+  font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+  color: var(--azul-medio); margin-bottom: .6em;
+}
+.tarjeta-curso p{ color: var(--texto-suave); font-size: .95rem; }
+
+.cursos__cta{ text-align: center; margin-top: 54px; }
+
+/* =========================================================
+   Beneficios
+   ========================================================= */
+.rejilla-beneficios{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.tarjeta-beneficio{
+  background: var(--blanco);
+  border-radius: var(--radio-md);
+  padding: 30px 24px;
+  border: 1px solid rgba(14,34,56,.07);
+  text-align: left;
+}
+.tarjeta-beneficio__icono{
+  width: 60px; height: 60px; border-radius: 16px;
+  background: var(--azul-marino); color: var(--celeste-300);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.tarjeta-beneficio h3{ font-size: 1.02rem; margin-bottom: .3em; }
+.tarjeta-beneficio p{ color: var(--texto-suave); font-size: .92rem; margin: 0; }
+
+/* =========================================================
+   Contacto
+   ========================================================= */
+.contacto__rejilla{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.contacto__tarjeta{
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radio-md);
+  padding: 28px 24px;
+}
+.contacto__icono{
+  width: 48px; height: 48px; border-radius: 14px;
+  background: var(--celeste); color: var(--azul-oscuro);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.contacto__tarjeta h3{ color: var(--blanco); font-size: .98rem; margin-bottom: .4em; }
+.contacto__tarjeta p{ color: rgba(255,255,255,.78); font-size: .95rem; }
+.contacto__tarjeta a{ color: rgba(255,255,255,.9); font-weight: 600; word-break: break-word; }
+.contacto__tarjeta a:hover{ color: var(--celeste-300); }
+.contacto__lista{ display: flex; flex-direction: column; gap: 10px; }
+.contacto__lista a{ display: inline-flex; align-items: center; gap: 9px; }
+.contacto__lista svg{ color: var(--celeste); flex-shrink: 0; }
+
+.contacto__redes{ text-align: center; margin-bottom: 46px; }
+.contacto__redes p{ color: rgba(255,255,255,.7); font-weight: 700; font-size: .9rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 18px; }
+.redes-sociales{ display: flex; justify-content: center; gap: 14px; }
+.redes-sociales__icono{
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.25);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blanco);
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.redes-sociales__icono:hover{ background: var(--celeste); color: var(--azul-oscuro); border-color: var(--celeste); transform: translateY(-3px); }
+
+.contacto__logo{ display: flex; justify-content: center; }
+.contacto__logo img{ width: 64px; height: 64px; opacity: .9; }
+
+/* =========================================================
+   Pie de página
+   ========================================================= */
+.pie-pagina{ background: var(--azul-oscuro); border-top: 1px solid rgba(255,255,255,.08); }
+.pie-pagina__interior{ padding: 26px 24px; text-align: center; }
+.pie-pagina__nombre{ color: rgba(255,255,255,.85); font-weight: 700; font-size: .92rem; margin: 0 0 6px; }
+.pie-pagina__derechos{ color: rgba(255,255,255,.5); font-size: .8rem; margin: 0; }
+
+/* =========================================================
+   Animación de aparición al hacer scroll
+   ========================================================= */
+.anima-al-scroll{
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.anima-al-scroll.es-visible{ opacity: 1; transform: translateY(0); }
+.tarjeta-curso.anima-al-scroll{ transition-delay: calc(var(--indice, 0) * 60ms); }
+
+/* =========================================================
+   Whatsapp
+   ========================================================= */
+
+.boton-whatsapp-flotante{
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px -8px rgba(0,0,0,.4);
+  z-index: 80;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.boton-whatsapp-flotante:hover{
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 14px 30px -8px rgba(0,0,0,.5);
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 900px){
+  .columnas, .columnas--invertida{ grid-template-columns: 1fr; gap: 40px; }
+  .columnas--invertida .columnas__media{ order: 0; }
+  .columnas--invertida .columnas__texto{ order: 1; }
+  .rejilla-cursos{ grid-template-columns: repeat(2, 1fr); }
+  .rejilla-beneficios{ grid-template-columns: repeat(2, 1fr); }
+  .contacto__rejilla{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px){
+  .seccion{ padding: 68px 0; }
+  .rejilla-cursos{ grid-template-columns: 1fr; }
+  .rejilla-beneficios{ grid-template-columns: 1fr; }
+  .hero{ min-height: auto; }
+  .hero__contenido{ padding: 40px 24px 90px; }
+  .hero__acciones .boton{ width: 100%; }
+  .barra-nav__interior{ height: 68px; }
+  .marca__texto{ display: none; }
+}
